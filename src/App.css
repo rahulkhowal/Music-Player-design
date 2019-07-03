@@ -37,8 +37,3 @@ html,body{
     transform: rotate(360deg);
   }
 }
-.Section{
-  background-image: url("C:\Users\WELCOME\Desktop\react\designapplication\src\photos\boy.png");
-  background-position:right 10px center;
-  width:100%;
-}
