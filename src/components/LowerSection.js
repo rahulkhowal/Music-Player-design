@@ -41,6 +41,7 @@ div1:{
    left:'70%',
    top:'110%',
    bottom:'10%',
+   padding:'4%'
 },
 Now:{
 	flex:1,
@@ -58,15 +59,21 @@ time:{
 class LowerSection extends Component{
 	state={
 		 SongsList:[{id:1,name:'We lived in Paris',time:'2.71'},{id:2,name:'We lived in India',time:'3.71'},{id:3,name:'We lived in lanka',time:'3.71'},{id:4,name:'We lived in place',time:'4.71'},{id:5,name:'We lived in Paris',time:'4.84'},{id:6,name:'We lived in Rusia',time:'3.71'}],
-	     NowPlaying:[]
+	     NowPlaying:'',
+	     click: false
 	}
-	handleClick=(e)=>{
+	handleChange=(e)=>{
 	e.preventDefault()
+	//console.log('hi')
 	//this.state.NowPlaying.length=0;
+	 //const name :e.target.name
+	
 	this.setState({
+		click:true,
        NowPlaying: e.target.name
 	})
-	this.props.history.push('App')
+	//this.props.history.push('App')
+	 //console.log(name)
    }
 	render(){
 		const{classes}=this.props
@@ -94,8 +101,16 @@ class LowerSection extends Component{
               className={classes.music}
               />
             <h2 className={classes.Heading}>Now Playing</h2>
-            <h4 className={classes.current}>{this.state.NowPlaying}</h4>
-            <h3 className={classes.Now}>{this.state.NowPlaying}</h3>
+            {
+            	(this.state.NowPlaying==null ? 
+            	<h4 className={classes.current}>{this.state.NowPlaying}</h4> :null
+                )
+            }
+            {
+                (this.state.NowPlaying==null ?
+                <h3 className={classes.Now}>{this.state.NowPlaying}</h3>:null
+                )
+              }
             <div className={classes.div1}>{itemContainer}</div>
 			</div>
 
